@@ -1,12 +1,23 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <body>
-
-<table border="1" cellpadding="5"
-    style="border-collapse: collapse; border: 1px solid black;">
-<tr>
-<th>1</th>
-<th><div>{{some}}</div></th>
-</tr>
-</table>
+<div>
+    <form method="POST" action="add">
+        <input type="text" name="text" placeholder="Введите сообщение">
+        <input type="text" name="tag" placeholder="Тэг">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<div>Список сообщений</div>
+<form method="post" action="filter">
+    <input type="text" name="filter">
+    <button type="submit">Найти</button>
+</form>
+{{#messages}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{text}}</span>
+        <i>{{tag}}</i>
+    </div>
+{{/messages}}
 </body>
 </html>
